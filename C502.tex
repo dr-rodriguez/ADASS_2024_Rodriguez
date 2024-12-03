@@ -48,13 +48,13 @@
 % authors share an affiliation this should be in a single \affil which can then
 % be referenced for several author names. If only one affiliation, no footnotes are needed.
 % See ManuscriptInstructions.pdf and ASP's manual2010.pdf 3.1.4 for more details
-\author{David~R.~Rodriguez,$^1$ M.~Arevalo,$^2$ P.~Dowler,$^3$ J.~Espinosa,$^2$ B.~McLean,$^1$ and P.~Dowler$^3$}
-\affil{$^1$Space Telescope Science Institute, Baltimore, MD, USA; \email{AuthorEmail@email.edu}}
+\author{David~R.~Rodriguez,$^1$ M.~Arevalo,$^2$ P.~Dowler,$^3$ J.~Espinosa,$^2$ B.~McLean,$^1$ and C.~Willot$^3$}
+\affil{$^1$Space Telescope Science Institute, Baltimore, MD, USA; \email{drodriguez@stsci.edu}}
 \affil{$^2$ESAC, Institution City, State/Province, Spain}
 \affil{$^3$CADC, Institution City, State/Province, Canada}
 
 % This section is for ADS Processing.  There must be one line per author. paperauthor has 9 arguments.
-\paperauthor{Sample~Author1}{Author1Email@email.edu}{ORCID_Or_Blank}{Author1 Institution}{Author1 Department}{City}{State/Province}{Postal Code}{Country}
+\paperauthor{David~R.~Rodriguez}{drodriguezl@stsci.edu}{0000-0003-1286-5231}{Space Telescope Science Institute}{Author1 Department}{Baltimore}{MD}{Postal Code}{USA}
 \paperauthor{Sample~Author2}{Author2Email@email.edu}{ORCID_Or_Blank}{Author2 Institution}{Author2 Department}{City}{State/Province}{Postal Code}{Country}
 \paperauthor{Sample~Author3}{Author3Email@email.edu}{ORCID_Or_Blank}{Author3 Institution}{Author3 Department}{City}{State/Province}{Postal Code}{Country}
 \paperauthor{Sample~Author4}{Author3Email@email.edu}{ORCID_Or_Blank}{Author3 Institution}{Author3 Department}{City}{State/Province}{Postal Code}{Country}
@@ -99,7 +99,89 @@ Additionally, we will discuss some of the challenges we have encountered and the
 
 \section{Introduction}
 
-To be filled in later
+Brief overview of each of the archives
+
+\section{Collaboration History}
+
+Brief section on the history of our collaboration
+
+Originally shared all public HST data between archives
+With the start of “On-the-Fly-Calibration”, moved to only sharing raw data and each archive would run their own pipeline
+Instrument-team level collaboration for building products, addressing issues
+Divided tasks to build Hubble Legacy Archive (HLA)
+STScI: ACS and NICMOS imaging
+CADC: WFPC2
+ST-ECF and ESA: ACS and NICMOS grism data through 2010. 
+Ran into some issues:
+Which reduction is best? How to cite? How to reproduce results?
+It became harder to keep pipeline processing in sync
+Decision to consolidate creation of data products to STScI
+Partner Data Centers would become data mirrors
+HST Partner Consolidated Pipeline Project  (completed Oct 2017)
+
+\section{Consolidated Pipeline Project}
+
+
+STScI runs pipelines to reduce HST & JWST observations
+Common Archive Observation Model (CAOM) to handle metadata format
+CADC and ESAC harvest metadata and public data for these missions
+Synchronized roughly every hour
+ESAC provides access to proprietary data through their interface via a redirect back to STScI
+
+\subsection{Tools}
+
+The Common Archive Observation Model (CAOM)
+Developed by CADC for astronomical observations across the EM spectrum
+Not yet a VO standard, but IVOA working draft available
+Groups multiple files into an “Observation”
+Standardizes elements across missions, such as calibration levels, filter info, footprints, etc.
+Extensible with supplementary information, eg instrument keywords, target keywords
+https://github.com/opencadc/CAOM/
+
+The Metadata & File Harvesters
+Developed by CADC, with contributions from ESAC
+Open Source tools at https://github.com/opencadc 
+Installed at CADC and ESAC
+List and get metadata and files from a CAOM service
+Flexible to adapt to the different needs (e.g. folders to store the files)
+
+\subsection{Communication}
+
+Validating each other’s archives
+
+Slack channel for asynchronous communication and discussions
+Bi-weekly standups to check on status and go over issues
+Annual Archives Coordination Meeting (ACM)
+STScI hosts an Outerspace for common documentation
+
+\section{Lessons Learned}
+
+Agree on standards to use
+Agreement to use Common Archive Observation Model (CAOM)
+Metadata serialized in xml file for ease of transfer
+Discussions on best way to translate mission data into CAOM
+Table Access Protocol (TAP) to check status across archives
+Communicate expectations
+Agree to mirror only public data (eg, no proprietary/exclusive access data)
+Timelines, data volume, ingest rates
+Share tools and resources
+CAOM was developed by CADC and integrated into STScI’s pipeline
+Same harvester software is used by CADC and ESAC
+STScI exploring how to use the harvester (for internal testing)
+
+Have established check-ins
+Biweekly standups with core team to ensure we are on track
+Yearly meeting with a broader group to highlight status and work towards future goals
+Have a robust testing infrastructure
+Python and Java validation tools for CAOM content
+Each archive checks metadata independently, but can also do cross-archive checks
+Have Test databases with sample HST, JWST content
+Working to produce dashboards for quick verification of results
+Document the process
+Systems and staff change over time
+Capture how things work to make it easier to make changes in the future and train new staff
+Enable future collaborations
+Trust and confidence built on top of the collaboration
 
 
 \section{The Template}
