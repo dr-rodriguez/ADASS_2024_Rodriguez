@@ -99,60 +99,70 @@ Additionally, we will discuss some of the challenges we have encountered and the
 
 \section{Introduction}
 
-Brief overview of each of the archives
+When working towards supporting an archive for the Hubble Space Telescope, we had three main partners that worked to make this a reality.
+These are the Space Telescope Science Institute (STSc), the European Space Astronomy Centre (ESAC), and the Canadian Astronomy Data Centre (CADC).
+
+The Space Telescope Science Institute (STScI) is located at Baltimore, MD, USA and was established in 1981.
+The Mikulski Archive for Space Telescopes (MAST) established in 1997 to serve IUE and HST data, with a focus on UV/Optical/Near-IR observatories. MAST currently hosts data from over 20 missions.
+
+The Canadian Astronomy Data Centre (CADC) is located near Victoria, Canada and was established in 1986.
+CADC serves active Canadian Space Agency (CSA) missions (including JWST), HST and many ground-based telescope archives.
+CADC also runs the CANFAR Science Platform for collaborative science analysis of JWST and other missions.
+
+The European Space Astronomy Centre (ESAC) is located near Madrid, Spain. Though at the start of this collaboration in the early 1990s, this partnership was with the Space Telescope European Coordination Facility (ST-ECF) located at ESO in Garching, Germany. 
+The ST-ECF was active from 1984 to 2011 and the Archive moved to ESAC at that time. 
+Since then the ESAC Science Data Centre (ESDC) serves data from ESA's space science missions (including HST \& JWST).
 
 \section{Collaboration History}
 
-Brief section on the history of our collaboration
+When we started working on sharing data, we started with a focus on all public HST data. 
+With the start of “On-the-Fly-Calibration”, we focused on sharing raw data allowing each archive would run their own pipeline. 
+We continued to collaborate at the instrument level to help design the pipeline, build products, and address any issues.
 
-Originally shared all public HST data between archives
-With the start of “On-the-Fly-Calibration”, moved to only sharing raw data and each archive would run their own pipeline
-Instrument-team level collaboration for building products, addressing issues
-Divided tasks to build Hubble Legacy Archive (HLA)
-STScI: ACS and NICMOS imaging
-CADC: WFPC2
-ST-ECF and ESA: ACS and NICMOS grism data through 2010. 
-Ran into some issues:
-Which reduction is best? How to cite? How to reproduce results?
-It became harder to keep pipeline processing in sync
-Decision to consolidate creation of data products to STScI
-Partner Data Centers would become data mirrors
-HST Partner Consolidated Pipeline Project  (completed Oct 2017)
+When building the Hubble Legacy Archive (HLA), we split the processing of the various instruments and modes across the archives. 
+STScI took care of ACS and NICMOS imaging; CADC processed WFPC2; and ST-EFC and ESA took care of ACS and NICMOS grism data through 2010. 
+
+The need for a more robust mechanism to share our data started to arise in the 2010s as we discovered limitations with the On-the-Fly-Calibration approach. Because each archive had their own implementation of the pipeline, differences could arise depending on software versions, calibration reference files, or even hardware differences. As such, there was no single official best reduction of any HST product. 
+
+This spurred the design of the HST Partner Consolidated Pipeline Project, which we will describe in the next section.
 
 \section{Consolidated Pipeline Project}
 
+The Consolidated Pipeline Project was designed to handle the discrepancies of HST reduction across the three partners. 
+The goal was to have a single archive run the pipeline and produce the highest level products. 
+The other two archives would become data mirrors and harvest all public data. 
+This ensures that all three archives host the same copy of the products. 
 
-STScI runs pipelines to reduce HST & JWST observations
-Common Archive Observation Model (CAOM) to handle metadata format
-CADC and ESAC harvest metadata and public data for these missions
-Synchronized roughly every hour
+In our setup today, STScI runs the pipelines to reduce both HST and JWST observations. 
+CADC and ESAC harvest metadata and public data for these missions, roughly every hour. 
 ESAC provides access to proprietary data through their interface via a redirect back to STScI
 
 \subsection{Tools}
 
-The Common Archive Observation Model (CAOM)
-Developed by CADC for astronomical observations across the EM spectrum
-Not yet a VO standard, but IVOA working draft available
-Groups multiple files into an “Observation”
-Standardizes elements across missions, such as calibration levels, filter info, footprints, etc.
-Extensible with supplementary information, eg instrument keywords, target keywords
-https://github.com/opencadc/CAOM/
+To facilitate the sharing of metadata across archives we made use of the Common Archive Observation Model (CAOM; https://github.com/opencadc/CAOM/). 
+CAOM was developed by CADC to handle metadata for astronomical observations across the electromagnetic spectrum. 
+In CAOM, files are grouped as products of an Observation and elements, such as calibration levels, filter information, footprint formats, etc are standardized. 
+Because of this standardization, multiple missions can be searched with the same keywords empowering multi-mission archives. 
+It is also extensible with supplementary information such as providing mission-specific instrument keywords, target keywords, and more. 
+CAOM is not yet a Virtual Observatory standard, but an IVOA working draft is available. 
 
-The Metadata & File Harvesters
-Developed by CADC, with contributions from ESAC
-Open Source tools at https://github.com/opencadc 
-Installed at CADC and ESAC
-List and get metadata and files from a CAOM service
-Flexible to adapt to the different needs (e.g. folders to store the files)
+Another mayor tool was the the Metadata \& File Harvesters, which focus on actually transferring the metadata (from CAOM in XML format) and the actual mission files themselves. 
+The Harvester was developed by CADC, with contributions from ESAC and consistet of open source tools available at https://github.com/opencadc. 
+This is installed at CADC and ESAC and allows us to List and get metadata and files from a running CAOM service at STScI. 
 
 \subsection{Communication}
 
-Validating each other’s archives
+We have regular checkouts to continue to foster this partnership. 
+We have a shared Slack channel for asynchronous communication and discussions. 
+We also host bi-weekly standup meetings to check on status and go over any major issues. 
+These meetings are hosted via Zoom at a time that works for all three partners. 
+Finally, we have an annual Archive Coordination Meeting (ACM). 
+The ACM typically lasts 2 days and we go over major points and plan out future work. 
+For more long-term record keeping, STScI host an Outerspace website to store meeting notes and other documenation.
 
-Slack channel for asynchronous communication and discussions
-Bi-weekly standups to check on status and go over issues
-Annual Archives Coordination Meeting (ACM)
-STScI hosts an Outerspace for common documentation
+In addition to these communication channels, we also have automated tests that validate the content of each other's archives. 
+These either send emails or slack messages for us to review.
+This has been particularly useful at identifying discrepancies or delays in harvesting across the archives. 
 
 \section{Lessons Learned}
 
@@ -182,6 +192,45 @@ Systems and staff change over time
 Capture how things work to make it easier to make changes in the future and train new staff
 Enable future collaborations
 Trust and confidence built on top of the collaboration
+
+\section{Acknowledgments}
+
+CADC
+Patrick Dowler
+Chris Willott
+Daniel Durand
+Severin Gaudet
+JJ Kavelaars
+David Schade
+Ling Shao
+Hossen Teimoorinia
+
+ESAC
+Javier Espinosa
+María Arévalo
+Bruno Merín
+Raúl Gutiérrez
+Javier Durán
+Jonas Haase (former ST-ECF)
+Felix Stoehr (former ST-ECF)
+Anthony Marston
+Christopher Evans
+Paule Sonnentrucker
+Antonella Nota
+Daniel Lennon
+
+STScI
+Brian McLean
+David Rodriguez
+David Wolfe
+Matt Burger
+Faith Abney
+Rick White
+Travis Berger
+Josh Peek
+Susan Mullally
+Jonathan Hargis
+Karen Levay
 
 
 \section{The Template}
