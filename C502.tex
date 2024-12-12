@@ -86,20 +86,6 @@ We will present how this collaboration has evolved over time, highlighting key m
 Additionally, we will discuss some of the challenges we have encountered and the strategies we employed to overcome them, offering insights that could benefit future archive collaborations.
 \end{abstract}
 
-% These lines show examples of subject index entries. At this stage these have to commented
-% out, and need to be on separate lines. Eventually, they will be automatically uncommented
-% and used to generate entries in the Subject Index at the end of the Proceedings volume.
-% Don't leave these in! - replace them with ones relevant to your paper.
-%\ssindex{FOOBAR!conference!ADASS 2019}
-%\ssindex{FOOBAR!organisations!ASP}
-
-% These lines show examples of ASCL index entries. At this stage these have to commented
-% out, and need to be on separate lines. Eventually, they will be automatically uncommented
-% and used to generate entries in the ASCL Index at the end of the Proceedings volume.
-% The ascl.py command will scan your paper on possible code names.
-% Don't leave these in! - replace them with ones relevant to your paper.
-%\ooindex{FOOBAR, ascl:1101.010}
-
 \section{Introduction}
 
 When working towards supporting an archive for the Hubble Space Telescope, we had three main partners that worked to make this a reality.
@@ -119,7 +105,7 @@ Since then the ESAC Science Data Centre (ESDC) serves data from ESA's space scie
 \section{Collaboration History}
 
 When we started working on sharing data, we started with a focus on all public HST data. 
-With the start of “On-the-Fly-Calibration”, we focused on sharing raw data allowing each archive would run their own pipeline. 
+With the start of "On-the-Fly-Calibration", we focused on sharing raw data allowing each archive would run their own pipeline. 
 We continued to collaborate at the instrument level to help design the pipeline, build products, and address any issues.
 
 When building the Hubble Legacy Archive (HLA), we split the processing of the various instruments and modes across the archives. 
@@ -127,7 +113,8 @@ STScI took care of ACS and NICMOS imaging; CADC processed WFPC2; and ST-EFC and 
 
 The need for a more robust mechanism to share our data started to arise in the 2010s as we discovered limitations with the On-the-Fly-Calibration approach. 
 Because each archive had their own implementation of the pipeline, differences could arise depending on software versions, calibration reference files, or even hardware differences. 
-As such, there was no single official best reduction of any HST product. In addition, each partner generated their own set of metadata to describe the data and provide search capabilities to their users and this provided an inconsistent description and experience.
+As such, there was no single official best reduction of any HST product. 
+In addition, each partner generated their own set of metadata to describe the data and provide search capabilities to their users and this provided an inconsistent description and experience.
 
 This spurred the design of the HST Partner Consolidated Pipeline Project, which we will describe in the next section.
 
@@ -184,7 +171,7 @@ Early on we agreed to mirror only public data (eg, no proprietary/exclusive acce
 We make sure to communicate timelines, data volume, ingest rates, and what we expect to see for them. 
 
 \textbf{Share tools and resources}. 
-CAOM was developed by CADC and integrated into STScI’s pipeline.
+CAOM was developed by CADC and integrated into STScI's pipeline.
 The same harvester software is used by CADC and ESAC. 
 STScI is also exploring how to use the harvester for internal testing.
 
