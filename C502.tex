@@ -59,7 +59,7 @@
 \paperauthor{Patrick~Dowler}{patrick.dowler@nrc-cnrc.gc.ca}{0000-0001-7011-4589}{National Research Council}{CADC}{Victoria}{BC}{V9E 2E7}{Canada}
 \paperauthor{Javier~Espinosa}{javier.espinosa@ext.esa.int}{0000-0002-9956-4433}{Starion Spain for ESA}{SCI-MS}{Villanueva de la Cañada}{Madrid}{28692}{Spain}
 \paperauthor{Brian~McLean}{mclean@stsci.edu}{0000-0002-8058-643X}{Space Telescope Science Institute}{CSB}{Baltimore}{MD}{Postal Code}{USA}
-\paperauthor{Chris~Willot}{Christopher.Willott@nrc-cnrc.gc.ca}{0000-0002-4201-7367}{National Research Council}{CADC}{Victoria}{BC}{V9E 2E7}{Canada}
+\paperauthor{Chris~Willott}{Christopher.Willott@nrc-cnrc.gc.ca}{0000-0002-4201-7367}{National Research Council}{CADC}{Victoria}{BC}{V9E 2E7}{Canada}
 
 % There should be one \aindex line (commented out) for each author. These are used to
 % build up the author index for the Proceedings. The surname must come first, followed by
@@ -74,7 +74,7 @@
 %\aindex{Dowler,~P.}
 %\aindex{Espinosa,~J.}
 %\aindex{McLean,~B.}
-%\aindex{Willot,~C.}
+%\aindex{Willott,~C.}
 
 
 \begin{abstract}
@@ -89,7 +89,7 @@ Additionally, we will discuss some of the challenges we have encountered and the
 \section{Introduction}
 
 When working towards supporting an archive for the Hubble Space Telescope, we had three main partners that worked to make this a reality.
-These are the Space Telescope Science Institute (STSc), the European Space Astronomy Centre (ESAC), and the Canadian Astronomy Data Centre (CADC).
+These are the Space Telescope Science Institute (STScI), the European Space Astronomy Centre (ESAC), and the Canadian Astronomy Data Centre (CADC).
 
 The Space Telescope Science Institute (STScI) is located at Baltimore, MD, USA and was established in 1981 and the Mikulski Archive for Space Telescopes (MAST) established in 1997 to serve IUE and HST data. MAST currently hosts data from over 20 missions, with a focus on UV/Optical/Near-IR observatories.
 
@@ -104,7 +104,7 @@ Since then the ESAC Science Data Centre (ESDC) serves data from ESA's space scie
 \section{Collaboration History}
 
 When we started working on sharing data, we focused on all public HST data. 
-With the start of "On-the-Fly-Calibration", we switched sharing only raw data allowing each archive would run their own pipeline. 
+With the start of "On-the-Fly-Calibration", we switched sharing only raw data allowing each archive to run their own pipeline. 
 We continued to collaborate at the instrument level to help design the pipeline, build products, and address any issues.
 
 When building the Hubble Legacy Archive (HLA), we split the processing of the various instruments and modes across the archives. 
@@ -132,20 +132,20 @@ ESAC provides access to proprietary data through their interface via a redirect 
 
 To facilitate the sharing of metadata across archives we made use of the Common Archive Observation Model (CAOM; https://github.com/opencadc/CAOM/). 
 CAOM was developed by CADC to handle metadata for astronomical observations across the electromagnetic spectrum. 
-In CAOM, files are grouped as products of an Observation and elements, such as calibration levels, filter information, footprint formats, etc are standardized. 
+In CAOM, files are grouped as products of an Observation and elements, such as calibration levels, filter information, footprint formats, etc, are standardized. 
 Because of this standardization, multiple missions can be searched with the same keywords empowering multi-mission archives. 
 It is also extensible with supplementary information such as providing mission-specific instrument keywords, target keywords, and more. 
 A working draft is available and CAOM is on track to become an IVOA standard. 
 
-Another mayor tool was the the Metadata \& File harvesting software, which focuses on 
-actually transferring the metadata (CAOM Observations in XML format) and the actual mission files themselves. 
+Another major tool is the the Metadata \& File harvesting software, which focuses on 
+transferring the metadata (CAOM Observations in XML format) and the actual mission files themselves. 
 These were originally developed by CADC, with contributions from ESAC, 
 and are available as open source tools at https://github.com/opencadc.
-These tools are installed at CADC and ESAC and allows us to list and get both metadata and files from a running CAOM service at STScI. 
+These tools are installed at CADC and ESAC and allow us to list and get both metadata and files from a running CAOM service at STScI. 
 
 \subsection{Communication}
 
-We have regular checkouts to continue to foster this partnership. 
+We have regular check ins to continue to foster this partnership. 
 We have a shared Slack channel for asynchronous communication and discussions. 
 We also host bi-weekly stand-up meetings to check on status and go over any major issues. 
 These meetings are hosted via Zoom at a time that works for all three partners. 
@@ -176,7 +176,7 @@ CAOM was developed by CADC and integrated into STScI's pipeline.
 The same harvester software is used by CADC and ESAC. 
 STScI is also exploring how to use the harvester for internal testing.
 
-\textbf{Have established check-ins}.
+\textbf{Have established check ins}.
 We have bi-weekly stand-up meetings with the core team to ensure we are on track. 
 We also have yearly meetings with a broader group to highlight status and work towards future goals.
 
