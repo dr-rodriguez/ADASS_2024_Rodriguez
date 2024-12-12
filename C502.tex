@@ -127,7 +127,7 @@ STScI took care of ACS and NICMOS imaging; CADC processed WFPC2; and ST-EFC and 
 
 The need for a more robust mechanism to share our data started to arise in the 2010s as we discovered limitations with the On-the-Fly-Calibration approach. 
 Because each archive had their own implementation of the pipeline, differences could arise depending on software versions, calibration reference files, or even hardware differences. 
-As such, there was no single official best reduction of any HST product. 
+As such, there was no single official best reduction of any HST product. In addition, each partner generated their own set of metadata to describe the data and provide search capabilities to their users and this provided an inconsistent description and experience.
 
 This spurred the design of the HST Partner Consolidated Pipeline Project, which we will describe in the next section.
 
@@ -135,7 +135,7 @@ This spurred the design of the HST Partner Consolidated Pipeline Project, which 
 
 The Consolidated Pipeline Project was designed to handle the discrepancies of HST reduction across the three partners. 
 The goal was to have a single archive run the pipeline and produce the highest level products. 
-The other two archives would become data mirrors and harvest all public data. 
+The other two archives would become data mirrors and harvest all the observation metadata and public data. 
 This ensures that all three archives host the same copy of the products. 
 
 In our setup today, STScI runs the pipelines to reduce both HST and JWST observations. 
@@ -149,11 +149,11 @@ CAOM was developed by CADC to handle metadata for astronomical observations acro
 In CAOM, files are grouped as products of an Observation and elements, such as calibration levels, filter information, footprint formats, etc are standardized. 
 Because of this standardization, multiple missions can be searched with the same keywords empowering multi-mission archives. 
 It is also extensible with supplementary information such as providing mission-specific instrument keywords, target keywords, and more. 
-CAOM is not yet a Virtual Observatory standard, but an IVOA working draft is available. 
+A working draft is available and CAOM is on track to become an IVOA standard. 
 
-Another mayor tool was the the Metadata \& File Harvesters, which focus on actually transferring the metadata (from CAOM in XML format) and the actual mission files themselves. 
-The Harvester was developed by CADC, with contributions from ESAC and consistet of open source tools available at https://github.com/opencadc. 
-This is installed at CADC and ESAC and allows us to List and get metadata and files from a running CAOM service at STScI. 
+Another mayor tool was the the Metadata \& File harvesting software, which focus on actually transferring the metadata (CAOM Observations in XML format) and the actual mission files themselves. 
+The tools were originally developed by CADC, with contributions from ESAC, and are available as open source tools at https://github.com/opencadc.
+These tools are installed at CADC and ESAC and allows us to list and get metadata and files from a running CAOM service at STScI. 
 
 \subsection{Communication}
 
