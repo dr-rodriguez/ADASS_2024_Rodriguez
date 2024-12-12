@@ -126,7 +126,7 @@ This ensures that all three archives host the same copy of the products.
 
 In our setup today, STScI runs the pipelines to reduce both HST and JWST observations. 
 CADC and ESAC harvest metadata and public data for these missions, roughly every hour. 
-ESAC provides access to proprietary data through their interface via a redirect back to STScI
+ESAC provides access to proprietary data through their interface via a redirect back to STScI.
 
 \subsection{Tools}
 
@@ -137,19 +137,21 @@ Because of this standardization, multiple missions can be searched with the same
 It is also extensible with supplementary information such as providing mission-specific instrument keywords, target keywords, and more. 
 A working draft is available and CAOM is on track to become an IVOA standard. 
 
-Another mayor tool was the the Metadata \& File harvesting software, which focus on actually transferring the metadata (CAOM Observations in XML format) and the actual mission files themselves. 
-The tools were originally developed by CADC, with contributions from ESAC, and are available as open source tools at https://github.com/opencadc.
-These tools are installed at CADC and ESAC and allows us to list and get metadata and files from a running CAOM service at STScI. 
+Another mayor tool was the the Metadata \& File harvesting software, which focuses on 
+actually transferring the metadata (CAOM Observations in XML format) and the actual mission files themselves. 
+These were originally developed by CADC, with contributions from ESAC, 
+and are available as open source tools at https://github.com/opencadc.
+These tools are installed at CADC and ESAC and allows us to list and get both metadata and files from a running CAOM service at STScI. 
 
 \subsection{Communication}
 
 We have regular checkouts to continue to foster this partnership. 
 We have a shared Slack channel for asynchronous communication and discussions. 
-We also host bi-weekly standup meetings to check on status and go over any major issues. 
+We also host bi-weekly stand-up meetings to check on status and go over any major issues. 
 These meetings are hosted via Zoom at a time that works for all three partners. 
 Finally, we have an annual Archive Coordination Meeting (ACM). 
 The ACM typically lasts 2 days and we go over major points and plan out future work. 
-For more long-term record keeping, STScI host an Outerspace website to store meeting notes and other documenation.
+For more long-term record keeping, STScI hosts an Outerspace website to store meeting notes and other documentation.
 
 In addition to these communication channels, we also have automated tests that validate the content of each other's archives. 
 These either send emails or slack messages for us to review.
@@ -157,11 +159,11 @@ This has been particularly useful at identifying discrepancies or delays in harv
 
 \section{Lessons Learned}
 
-Here we list the various lessons leanred throughout this 30+ year partnership.
+Here we list the various lessons learned throughout this 30+ year partnership.
 
 \textbf{Agree on standards to use}. 
 We decided to use Common Archive Observation Model (CAOM) to handle metadata sharing. 
-The metadata serialized as xml files for ease of transfer. 
+The metadata serialized as XML files for ease of transfer. 
 We keep having discussions on best way to translate mission data into CAOM. 
 And we make use of the Table Access Protocol (TAP) to check status across the archives.
 
@@ -175,7 +177,7 @@ The same harvester software is used by CADC and ESAC.
 STScI is also exploring how to use the harvester for internal testing.
 
 \textbf{Have established check-ins}.
-We have bi-weekly standup meetings with the core team to ensure we are on track. 
+We have bi-weekly stand-up meetings with the core team to ensure we are on track. 
 We also have yearly meetings with a broader group to highlight status and work towards future goals.
 
 \textbf{Have a robust testing infrastructure}.
@@ -204,7 +206,7 @@ At STScI, Brian McLean, David Rodriguez, David Wolfe, Matt Burger, Faith Abney, 
 
 %\acknowledgements The ASP would like to thank the dedicated researchers who are publishing with the ASP.  It will make things a lot easier if you keep this text on the same line as the \verb"\acknowledgements" command. Place it just before the bibliography. It's optional of course.
 
-\bibliography{C502}  % For BibTex
+% \bibliography{C502}  % For BibTex
 
 % if we have space left, we might add a conference photograph here. Leave commented for now.
 % \bookpartphoto[width=1.0\textwidth]{foobar.eps}{FooBar Photo (Photo: Any Photographer)}
